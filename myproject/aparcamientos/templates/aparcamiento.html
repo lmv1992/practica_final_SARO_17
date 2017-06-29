@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends "principal_plantilla.html" %}
+{% block content %}
+	accesibilidad: {{aparcamiento.accesibilidad}}<br/>
+	distrito: {{aparcamiento.distrito}}<br/>
+	barrio: {{aparcamiento.barrio}}<br/>
+	descripcion: {{aparcamiento.descripcion}}<br/>
+	direccion web: <a href='{{aparcamiento.url}}'>{{aparcamiento.url}}</a><br/>
+	{% if user.is_authenticated %}
+		<br/>Añade un comentario:
+		
+		<form method='post' action='/aparcamientos/{{id}}'>
+		<div><input type='text' name='comentario' value =''/></div>
+		<div class='button'><button type='submit'>Enviar</button></div>
+		<input type='hidden' name='recurso' value='1'>
+		</form>
+		
+		
+		</br>tiene {{aparcamiento.cuantidad_likes}} likes
+			
+		<form method='post' action='/aparcamientos/{{id}}'>
+		<div class='button'><button type='submit' name='like'>Dar Like a este aparcamiento!</button></div>
+		<input type='hidden' name='recurso' value='2'>
+		</form>
+
+
+		</br> Seleccionar aparcamiento favorito:	
+		
+		<form method ='post' action='/aparcamientos/{{id}}'>
+		<div class ='button'><button type='submit' name='favorito'>Seleccionar</button></div>
+		<input type='hidden' name='recurso' value='3'>
+		</form>
+	{% endif %}
+{% endblock %}

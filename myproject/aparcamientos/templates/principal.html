@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "principal_plantilla.html" %}
+{% block content %}
+
+
+		<h3>Pagina con mas likes:</h3><ul>
+			<ul>
+				{%for aparc in lista_aparcamientos%}
+					<li><a href="aparcamientos/{{aparc.id}}" >{{aparc.nombre}}</a></li>
+				{%empty%}
+					No hay aparcamientos que mostrar	
+				{%endfor%}
+			</ul>
+		<h3>Pagina de Usuarios:</h3>
+			<ul>
+				{%for usuario in lista_usuarios%}
+					<li><a href="/{{usuario}}" >{{usuario}}</a></li>
+				{%empty%}
+					No hay usuarios que mostrar	
+				{%endfor%}	
+			</ul>	
+{% endblock %}
+	

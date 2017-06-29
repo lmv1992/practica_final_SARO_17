@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "principal_plantilla.html" %}
+{% block content %}
+	{% if user.is_authenticated %}
+		<h1> titulo: {{titulo}}</h1>
+			<form method='post' action='/{{usuario}}'>
+			<table><tr><td>titulo de usuario:</td><td><input type='text' name='titulo' value=''></td></tr>
+			<tr><td>tamaño de letra:</td><td><input type='numbre' name='tamanho' value=''></td></tr>
+			</table><input type='submit' value='login' /></form>
+	{% endif %}
+	 <h1>Lista de aparcamientos favoritos</h1>
+	 	<ul>
+		{%for fav in lista_usuarios_fav%}
+			<li> {{fav.aparcamiento}} </li>
+		{%empty%}
+			No hay aparcamientos que mostrar
+		{%endfor%}
+		</ul>
+{% endblock %}

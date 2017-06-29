@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+		<title>APARCAMIENTOS EN MADRID</title>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/generico.css' %}"/>
+		<link rel="shortcut icon" href="static/banner.jpg">
+    </head>
+    <body>
+		<div id="cabecera">
+			<a href="/">
+				<img id="banner" src="static/banner.jpg"/>
+			<a>
+			<div id="acceso">
+			{% if user.is_authenticated %}
+				<h4>Bienvenido {{user.username}}</h4>
+				<a href="/{{user.username}}"><button class="buttonstyle"><span>Mi Pagina</span></button></a>
+				<a href="/{{user.username}}/XML"><button class="buttonstyle">XML</button></a>
+				<a href="/logout/"><button class="buttonstyle">Logout</button></a>
+			{% else %}
+				<h3>Inciar Sesion:</h3>
+					<form method='post' action='login/'>
+						<table><tr><td>Usuario:</td><td><input type='text' name=usuario_login value=''></td></tr>
+							<tr><td>Contraseña:</td><td><input type='password' name=contra_login value=''></td></tr>
+						</table><input type='submit' value='login' /></form>
+
+				<h3>Registrate:</h3>
+					<form method='post' action='/'>
+						<table><tr><td>Usuario:</td><td><input type='text' name=usuario_register value=''></td></tr>
+							<tr><td>Contraseña:</td><td><input type='password' name=contra_register value=''></td></tr>
+						</table><input type='submit' value='Iniciar Sesion' /></form>
+            {% endif %}
+			</div>
+		</div>
+		<div id="opciones">
+			<a href='/'>INICIO</a>
+			<a href='/aparcamientos'>TODOS</a>
+			<a href='/about'>ABOUT</a>
+		</div>
+		<div id="contenido">
+			{% block content %}
+			{% endblock %}
+		</div>
+	    </body>         
+</html>

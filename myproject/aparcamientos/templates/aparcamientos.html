@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends "principal_plantilla.html" %}
+{% block content %}
+	Filtre su busqueda por distrito:
+	<form method='POST' action='/aparcamientos'>
+	<select name = 'distrito'>
+	<optgroup label='Distrito:'>
+	<option value='None'>-</option>
+	<option value='FUENCARRAL-EL PARDO'>Fuencarral-El Pardo</option>
+	<option value='MONCLOA-ARAVACA'>Moncloa-Aravaca</option>
+	<option value='TETUAN'>Tetuan</option>
+	<option value='HORTALEZA'>Hortaleza</option>
+	<option value='CHAMARTIN'>Chamartin</option>
+	<option value='CIUDAD LINEAL'>Ciudad Lineal</option>
+	<option value='CHAMBERI'>Chamberi</option>
+	<option value='SALAMANCA'>Salamanca</option>
+	<option value='SAN BLAS-CANILLEJAS'>San Blas-Canillejas</option>
+	<option value='BARAJAS'>Barajas</option>
+	<option value='CENTRO'>Centro</option>
+	<option value='RETIRO'>Retiro</option>
+	<option value='ARGANZUELA'>Arganzuela</option>
+	<option value='MORATALAZ'>Moratalaz</option>
+	<option value='VILLAVERDE'>Villaverde</option>
+	<option value='USERA'>Usera</option>
+	<option value='LATINA'>Latina</option>
+	<option value='CARABANCHEL'>Carabanchel</option>
+	<option value='VICALVARO'>Vicalvaro</option>
+	<option value='PUENTE DE VALLECAS'>Puente de Vallecas</option>
+	<option value='VILLA DE VALLECAS'>Villa de Vallecas</option>
+	</optgroup>""</select>
+	<input type='submit' value='SELECCIONE EL DISTRITO'></form>
+		lista de todo los apacarmientos:
+	<ul>
+		{%for aparc in lista_aparcamientos%}
+			<li><a href="aparcamientos/{{aparc.id}}" >{{aparc.nombre}}</a></li>
+		{%empty%}
+			No hay aparcamientos que mostrar
+		{%endfor%}
+		</ul>
+{% endblock %}

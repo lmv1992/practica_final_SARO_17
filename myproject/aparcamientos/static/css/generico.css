@@ -1,0 +1,38 @@
+body{
+    background-color: white;
+    margin: auto;
+}
+
+a{
+    text-decoration:none;
+}
+
+#cabecera {
+	background-color: gray;
+	background-image: url("/static/foto_fondo.jpg");
+	display: block;
+	height: 300px;
+
+}
+	#banner{
+		display: inline;
+		float: left;
+		height: 300px;
+		width: 300px;
+
+	}
+
+	#acceso{
+		float: right;
+		background-color: gray;
+
+	}
+
+	#opciones{
+		display: block;
+		float: centro;
+		background-color: gray;
+	}
+#contenido{
+	background-color: gray;
+}
